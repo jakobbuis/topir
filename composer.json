@@ -1,0 +1,17 @@
+{
+    "name": "jakobbuis/topir",
+    "description": "Physical information radiator for my Todoist stats",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "vlucas/phpdotenv": "^3.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakob Buis",
+            "email": "jakob@jakobbuis.nl"
+        }
+    ],
+    "minimum-stability": "stable"
+}
