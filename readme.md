@@ -3,7 +3,7 @@
 
 ## Setup
 1. Clone the repository.
-1. Run `composer install`.
+1. Run `php composer.phar install`.
 1. Copy the `.env.example` file to `.env` and add your Todoist API token.
 1. Serve the public folder using a common, PHP-enabled webserver.
 1. Run the `import.php` script every 15 min or so using cron.
