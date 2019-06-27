@@ -51,10 +51,6 @@ foreach ($data as $entry) {
             },
             options: {
                 legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'Number of completed tasks, per day',
-                },
                 scales: {
                     yAxes: [{
                         ticks: {
