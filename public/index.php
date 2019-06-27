@@ -1,9 +1,7 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../bootstrap.php';
 
-$database = new PDO('sqlite:../statistics');
-$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $data = $database->query('SELECT * FROM statistics ORDER BY day ASC')->fetchAll();
 
 // Construct graph data structure and colour set

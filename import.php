@@ -1,20 +1,12 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-
-// Setup environment
-$dotenv = Dotenv\Dotenv::create(__DIR__);
-$dotenv->load();
-$token = getenv('TODOIST_API_TOKEN');
+require_once __DIR__ . '/bootstrap.php';
 
 // Get API data
+$token = getenv('TODOIST_API_TOKEN');
 $client = new \GuzzleHttp\Client();
 $response = $client->get('https://todoist.com/api/v8/completed/get_stats?token=' . $token);
 $data = json_decode((string) $response->getBody());
-
-// Open database
-$database = new PDO('sqlite:statistics');
-$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Prep the query
 $insert = "INSERT OR REPLACE INTO statistics (day, completed) VALUES (:day, :completed)";
