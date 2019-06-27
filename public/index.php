@@ -20,6 +20,7 @@ foreach ($data as $entry) {
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="60">
 
     <title>Todoist statistics</title>
 </head>
