@@ -19,6 +19,8 @@ foreach ($data as $entry) {
 ?><!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+
     <title>Todoist statistics</title>
 </head>
 <body>
