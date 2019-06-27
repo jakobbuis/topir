@@ -23,7 +23,9 @@ foreach ($data as $entry) {
 
     <canvas id="chart" width="400" height="400"></canvas>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.6.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
     <script>
         // Setup the canvas as full-screen
         canvas = document.getElementById('chart');
@@ -54,7 +56,13 @@ foreach ($data as $entry) {
                             beginAtZero: true
                         }
                     }]
-                }
+                },
+                plugins: {
+                    datalabels: {
+                        anchor: 'start',
+                        align: 'top',
+                    },
+                },
             }
         });
     </script>
