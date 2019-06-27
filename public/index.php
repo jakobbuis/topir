@@ -6,12 +6,13 @@ $database = new PDO('sqlite:../statistics');
 $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $data = $database->query('SELECT * FROM statistics ORDER BY day ASC')->fetchAll();
 
-$graph = array_map(function($entry) {
-    return (object) [
-        'x' => $entry['day'],
-        'y' => (int) $entry['completed'],
-    ];
-}, $data);
+// Construct graph data structure
+$labels = [];
+$counts = [];
+foreach ($data as $entry) {
+    $labels[] = date('d-m', strtotime($entry['day']));
+    $counts[] = (int) $entry['completed'];
+}
 
 ?><!DOCTYPE html>
 <html>
@@ -24,24 +25,38 @@ $graph = array_map(function($entry) {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script>
-        new Chart(document.getElementById('chart').getContext('2d'), {
+        // Setup the canvas as full-screen
+        canvas = document.getElementById('chart');
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+
+        // Bar chart
+        new Chart(canvas, {
             type: 'bar',
-            data: <?= json_encode($graph); ?>,
+            data: {
+                labels: <?= json_encode($labels) ?>,
+                datasets: [
+                    {
+                        backgroundColor: "#3cba9f",
+                        data: <?= json_encode($counts) ?>,
+                    }
+                ]
+            },
             options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Number of completed tasks, per day',
+                },
                 scales: {
-                    xAxes: [{
-                        barPercentage: 0.5,
-                        barThickness: 6,
-                        maxBarThickness: 8,
-                        minBarLength: 2,
-                        gridLines: {
-                            offsetGridLines: true
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
                         }
                     }]
                 }
             }
         });
-
     </script>
 </body>
 </html>
