@@ -19,7 +19,6 @@
                 return response.json();
             }).then(function(json) {
                 chart.data.labels = json.labels;
-                chart.data.datasets[0].backgroundColor = json.colours;
                 chart.data.datasets[0].data = json.counts;
                 setTimeout(poll, 1000 * 60);
                 chart.update(0);
@@ -38,7 +37,7 @@
                 labels: [],
                 datasets: [
                 {
-                    backgroundColor: [],
+                    backgroundColor: '#3cba9f',
                     data: [],
                 }
                 ]
