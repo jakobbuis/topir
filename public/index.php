@@ -4,10 +4,27 @@
     <meta charset="utf-8">
 
     <title>Todoist statistics</title>
+
+    <style>
+        footer {
+            position: absolute;
+            box-sizing: border-box;
+            bottom: 0;
+            left: 0;
+            background-color: #666;
+            width: 100%;
+            padding: 1em;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
     <canvas id="chart" width="400" height="400"></canvas>
+
+    <footer>
+        <button id=fullscreen>Fullscreen</button>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.6.0/dist/chartjs-plugin-datalabels.min.js"></script>
@@ -24,6 +41,10 @@
                 chart.update(0);
             });
         }
+
+        document.getElementById('fullscreen').addEventListener('click', function(event) {
+            document.documentElement.requestFullscreen();
+        });
 
         // Setup the canvas as full-screen
         canvas = document.getElementById('chart');
