@@ -36,10 +36,8 @@
             data: {
                 labels: [],
                 datasets: [
-                {
-                    backgroundColor: '#3cba9f',
-                    data: [],
-                }
+                    { backgroundColor: '#3cba9f', data: [] },
+                    { backgroundColor: '#c45850', data: [1, 2, 3, 4, 5, 6] },
                 ]
             },
             options: {
