@@ -39,6 +39,7 @@
             }).then(function(json) {
                 chart.data.labels = json.labels;
                 chart.data.datasets[0].data = json.counts;
+                chart.data.datasets[1].data = json.overdue;
                 window.pollTimeout = setTimeout(poll, 1000 * 60);
                 chart.update(0);
             });
@@ -64,10 +65,8 @@
             data: {
                 labels: [],
                 datasets: [
-                {
-                    backgroundColor: '#3cba9f',
-                    data: [],
-                }
+                    { backgroundColor: '#3cba9f', data: [] },
+                    { backgroundColor: '#c45850', data: [] },
                 ]
             },
             options: {
