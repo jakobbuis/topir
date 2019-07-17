@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-$data = $database->query('SELECT * FROM statistics ORDER BY day ASC LIMIT 30')->fetchAll();
+$data = $database->query('SELECT * FROM (SELECT * FROM statistics ORDER BY day DESC limit 30) ORDER BY day ASC')->fetchAll();
 
 // Construct graph data structure and colour set
 $labels = [];
