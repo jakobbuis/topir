@@ -14,7 +14,7 @@ function poll() {
 // Setup the canvas as full-screen
 canvas = document.getElementById('chart');
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight / 2;
+canvas.height = window.innerHeight;
 
 // Bar chart
 var chart = new Chart(canvas, {
