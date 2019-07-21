@@ -1,6 +1,6 @@
 // Self-calling function to poll for new server data
 function poll() {
-    fetch('/graph_data.php').then(function(response) {
+    fetch('/todoist_data.php').then(function(response) {
         return response.json();
     }).then(function(json) {
         todoistChart.data.labels = json.labels;
