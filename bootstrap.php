@@ -7,5 +7,9 @@ $dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
 // Open database
-$database = new PDO('sqlite:' . __DIR__ . '/statistics');
+$user = getenv('DB_USER');
+$name = getenv('DB_NAME');
+$pass = getenv('DB_PASSWORD');
+$dsn = "mysql:host=localhost;dbname={$name};charset=utf8mb4";
+$database = new PDO($dsn, $user, $pass);
 $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
