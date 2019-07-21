@@ -3,21 +3,21 @@ function poll() {
     fetch('/graph_data.php').then(function(response) {
         return response.json();
     }).then(function(json) {
-        chart.data.labels = json.labels;
-        chart.data.datasets[0].data = json.counts;
-        chart.data.datasets[1].data = json.overdue;
+        todoist.data.labels = json.labels;
+        todoist.data.datasets[0].data = json.counts;
+        todoist.data.datasets[1].data = json.overdue;
         setTimeout(poll, 1000 * 60);
-        chart.update(0);
+        todoist.update(0);
     });
 }
 
 // Setup the canvas as full-screen
-canvas = document.getElementById('chart');
+canvas = document.getElementById('todoist');
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.height = window.innerHeight / 2;
 
 // Bar chart
-var chart = new Chart(canvas, {
+var todoist = new Chart(canvas, {
     type: 'bar',
     data: {
         labels: [],
