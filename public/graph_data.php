@@ -8,8 +8,17 @@ $data = $database->query('SELECT * FROM (SELECT * FROM statistics ORDER BY day D
 $labels = [];
 $counts = [];
 $overdue = [];
+$dateKeys = [
+    1 => 'Mo',
+    2 => 'Tu',
+    3 => 'We',
+    4 => 'Th',
+    5 => 'Fr',
+    6 => 'Sa',
+    7 => 'Su',
+];
 foreach ($data as $entry) {
-    $labels[] = date('d-m', strtotime($entry['day']));
+    $labels[] = $dateKeys[date('N', strtotime($entry['day']))];
     $counts[] = $entry['completed'];
     $overdue[] = $entry['overdue'];
 }
