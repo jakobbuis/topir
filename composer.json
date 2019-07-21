@@ -4,7 +4,8 @@
     "type": "project",
     "require": {
         "guzzlehttp/guzzle": "^6.3",
-        "vlucas/phpdotenv": "^3.4"
+        "vlucas/phpdotenv": "^3.4",
+        "doctrine/migrations": "^2.1"
     },
     "license": "MIT",
     "authors": [
