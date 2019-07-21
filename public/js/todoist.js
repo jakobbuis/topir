@@ -1,23 +1,25 @@
 // Self-calling function to poll for new server data
 function poll() {
-    fetch('/graph_data.php').then(function(response) {
+    fetch('/todoist_data.php').then(function(response) {
         return response.json();
     }).then(function(json) {
-        chart.data.labels = json.labels;
-        chart.data.datasets[0].data = json.counts;
-        chart.data.datasets[1].data = json.overdue;
+        todoistChart.data.labels = json.labels;
+        todoistChart.data.datasets[0].data = json.counts;
+        todoistChart.data.datasets[1].data = json.overdue;
         setTimeout(poll, 1000 * 60);
-        chart.update(0);
+        todoistChart.update(0);
     });
 }
 
 // Setup the canvas as full-screen
-canvas = document.getElementById('chart');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+todoistElement = document.getElementById('todoist');
+todoistElement.style.width = '100%';
+todoistElement.style.height = '100%';
+todoistElement.width = todoistElement.offsetWidth;
+todoistElement.height = todoistElement.offsetHeight;
 
 // Bar chart
-var chart = new Chart(canvas, {
+var todoistChart = new Chart(todoistElement, {
     type: 'bar',
     data: {
         labels: [],

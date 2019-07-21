@@ -7,13 +7,27 @@
     <title>Todoist statistics</title>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
 </head>
 <body>
-    <canvas id="chart" width="400" height="400"></canvas>
+    <div class="box box-2">
+        <header>
+            <h1>Todoist completed and overdue</h1>
+        </header>
+        <canvas id="todoist" width="10" height="10"></canvas>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <div class="box box-1">
+        <header>
+            <h1>Diet measurements</h1>
+            <button id="setDiet">Update diet</button>
+        </header>
+        <canvas id="diet" width="10" height="10"></canvas>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.6.0/dist/chartjs-plugin-datalabels.min.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/js/todoist.js"></script>
+    <script src="/js/diet.js"></script>
 </body>
 </html>
