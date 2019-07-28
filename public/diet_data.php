@@ -9,7 +9,7 @@ $labels = [];
 $weights = [];
 $circumferences = [];
 foreach ($data as $entry) {
-    $labels[] = date('d-m', strtotime($entry['day']));
+    $labels[] = date('c', strtotime($entry['day']));
     $weights[] = $entry['weight'];
     $circumferences[] = $entry['circumference'];
 }

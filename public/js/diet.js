@@ -20,6 +20,12 @@ var dietChart = new Chart(dietElement, {
     },
     options: {
         scales: {
+            xAxes: [{
+                type: 'time',
+               time: {
+                    unit: 'day',
+                },
+            }],
             yAxes: [{
                 ticks: {
                     min: 80,
