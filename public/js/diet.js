@@ -64,7 +64,7 @@ document.getElementById('setDiet').addEventListener('click', function (event) {
     var today = new Date();
 
     // add new data point to graph
-    dietChart.data.labels.push(`${today.getDate()}-${today.getMonth()+1}`);
+    dietChart.data.labels.push(today);
     dietChart.data.datasets[0].data.push(weight);
     dietChart.data.datasets[1].data.push(circumference);
     dietChart.update(0);
