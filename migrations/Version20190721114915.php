@@ -14,7 +14,7 @@ final class Version20190721114915 extends AbstractMigration
         return 'Import existing data';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         $this->addSql('INSERT INTO statistics (day, completed, overdue) VALUES
             ("2019-06-17", 28, NULL),
@@ -54,7 +54,7 @@ final class Version20190721114915 extends AbstractMigration
             ("2019-07-21", 12, NULL);');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         $schema->addSql('TRUNCATE TABLE statistics');
     }

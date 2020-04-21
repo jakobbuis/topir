@@ -14,7 +14,7 @@ final class Version20190721180157 extends AbstractMigration
         return 'Create diet tracking table';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         $table = $schema->createTable('diet');
 
@@ -26,7 +26,7 @@ final class Version20190721180157 extends AbstractMigration
         $table->addColumn('circumference', 'float', $valueOptions);
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         $schema->dropTable('diet');
     }
