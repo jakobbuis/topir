@@ -7,11 +7,13 @@ namespace Migrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-/**
- * Import existing data
- */
 final class Version20190721114915 extends AbstractMigration
 {
+    public function getDescription(): string
+    {
+        return 'Import existing data';
+    }
+
     public function up(Schema $schema) : void
     {
         $this->addSql('INSERT INTO statistics (day, completed, overdue) VALUES

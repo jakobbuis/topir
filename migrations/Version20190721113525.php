@@ -7,11 +7,13 @@ namespace Migrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-/**
- * Create existing database structure
- */
 final class Version20190721113525 extends AbstractMigration
 {
+    public function getDescription(): string
+    {
+        return 'Create existing database structure';
+    }
+
     public function up(Schema $schema) : void
     {
         $table = $schema->createTable('statistics');
